@@ -11,7 +11,4 @@ public partial class Language
 
     public DateTime last_update { get; set; }
 
-    public virtual ICollection<Film> FilmLanguages { get; } = new List<Film>();
-
-    public virtual ICollection<Film> FilmOriginalLanguages { get; } = new List<Film>();
 }

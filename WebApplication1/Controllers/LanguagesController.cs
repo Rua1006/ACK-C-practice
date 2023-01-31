@@ -21,16 +21,15 @@ namespace WebApplication1.Controllers
         }
 
         // GET: api/Languages
-        [HttpGet("GetLanguage")]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<Language>>> GetLanguages()
         {
             return await _context.Languages.ToListAsync();
         }
 
-
         // GET: api/Languages/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Language>> GetLanguage(byte id)
+        public async Task<ActionResult<Language>> GetLanguage(int id)
         {
             var language = await _context.Languages.FindAsync(id);
 
@@ -45,7 +44,7 @@ namespace WebApplication1.Controllers
         // PUT: api/Languages/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLanguage(byte id, Language language)
+        public async Task<IActionResult> PutLanguage(int id, Language language)
         {
             if (id != language.language_id)
             {
@@ -86,7 +85,7 @@ namespace WebApplication1.Controllers
 
         // DELETE: api/Languages/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLanguage(byte id)
+        public async Task<IActionResult> DeleteLanguage(int id)
         {
             var language = await _context.Languages.FindAsync(id);
             if (language == null)
@@ -100,7 +99,7 @@ namespace WebApplication1.Controllers
             return NoContent();
         }
 
-        private bool LanguageExists(byte id)
+        private bool LanguageExists(int id)
         {
             return _context.Languages.Any(e => e.language_id == id);
         }
