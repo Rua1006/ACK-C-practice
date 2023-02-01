@@ -42,7 +42,6 @@ namespace WebApplication1.Controllers
         }
 
         // PUT: api/Languages/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutLanguage(int id, Language language)
         {
@@ -73,7 +72,6 @@ namespace WebApplication1.Controllers
         }
 
         // POST: api/Languages
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Language>> PostLanguage(Language language)
         {

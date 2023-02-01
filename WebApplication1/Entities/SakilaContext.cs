@@ -6,9 +6,6 @@ namespace WebApplication1.Entities;
 
 public partial class SakilaContext : DbContext
 {
-    public SakilaContext()
-    {
-    }
 
     public SakilaContext(DbContextOptions<SakilaContext> options)
         : base(options)
@@ -33,9 +30,7 @@ public partial class SakilaContext : DbContext
                 .ValueGeneratedOnAdd()
                 .HasColumnName("language_id");
             entity.Property(e => e.last_update)
-                .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
-                .HasColumnType("timestamp")
+                .HasColumnType("string")
                 .HasColumnName("last_update");
             entity.Property(e => e.Name)
                 .HasMaxLength(20)

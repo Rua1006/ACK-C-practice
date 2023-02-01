@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using MySql.EntityFrameworkCore.Extensions;
 using System.Configuration;
 using WebApplication1.Entities;
 
@@ -6,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<SakilaContext>(options => options.UseMySQL());
+builder.Services.AddEntityFrameworkMySQL().AddDbContext<SakilaContext>(Options =>
+{
+    Options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
